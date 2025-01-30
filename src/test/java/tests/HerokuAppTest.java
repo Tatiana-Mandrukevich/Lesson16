@@ -19,10 +19,10 @@ public class HerokuAppTest {
         driver.get("https://the-internet.herokuapp.com/login");
         driver.findElement(By.name("username")).sendKeys("tomsmith");
         driver.findElement(By.name("password")).sendKeys("SuperSecretPassword!");
-        driver.findElement(By.xpath("//*[@id=\"login\"]/button/i")).click();
+        driver.findElement(By.xpath("//*[@type=\"submit\"]")).click();
 
         String expectedResult = "Logout";
-        String actualResult = driver.findElement(By.xpath("//*[@id=\"content\"]/div/a/i")).getText();
+        String actualResult = driver.findElement(By.xpath("//*[@class=\"button secondary radius\"]")).getText();
         Assert.assertEquals(expectedResult, actualResult);
     }
 }
